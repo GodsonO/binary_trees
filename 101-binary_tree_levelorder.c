@@ -50,12 +50,13 @@ void traverse(const binary_tree_t *tree, void (*func)(int), size_t level)
  */
 void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int))
 {
-	size_t i = 1;
+	size_t level = 0, i = 1;
 
 	if (tree && func)
 		return;
 
-	while (i <= binary_tree_height(tree) + 1)
+	level = binary_tree_height(tree);
+	while (i <= level + 1)
 	{
 		traverse(tree, func, i);
 		i++;
